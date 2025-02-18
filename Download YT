@@ -1,0 +1,23 @@
+import os
+from yt_dlp import YoutubeDL
+
+def download_video(url, output_dir=None):
+    if output_dir is None:
+        output_dir = os.getcwd()
+    options = {
+        "paths": {"home": output_dir},
+        "outtmpl": {"default": "%(title)s.%(ext)s"}
+    }
+    with YoutubeDL(params=options) as ydl:
+        video_title = ydl.extract_info(url, download=True).get("title")
+        return video_title
+
+# Solicita ao usuário o link do vídeo
+video_url = input("Digite o link do vídeo: ")
+
+# Define a pasta de download (substitua por um caminho válido no seu sistema)
+output_folder = r"C:\Download"  # O 'r' antes da string evita erros com a barra invertida
+
+# Baixa o vídeo e exibe o título
+title = download_video(video_url)
+print(f"Download concluído: {title}")
