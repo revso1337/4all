@@ -18,6 +18,6 @@ video_url = input("Digite o link do vídeo: ")
 # Define a pasta de download (substitua por um caminho válido no seu sistema)
 output_folder = r"C:\Download"  # O 'r' antes da string evita erros com a barra invertida
 
-# Baixa o vídeo e exibe o título
+# Baixa o vídeo e exibe o título original
 title = download_video(video_url, output_folder)
 print(f"Download concluído: {title}")
